@@ -3,270 +3,987 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tony Krvaric's Voter Guide — June 2, 2026</title>
+<title>Tony Krvaric's Voter Guide — November 3, 2026 General Election</title>
 <style>
+  :root {
+    --red: #c8102e;
+    --sand: #f5f0e8;
+    --dark: #1a1a1a;
+    --gray: #6b6b6b;
+    --light-gray: #e8e3db;
+    --border: #d4cdc2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
     font-family: Georgia, 'Times New Roman', serif;
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 40px 24px;
-    color: #1a1a1a;
-    background: #ffffff;
+    background: var(--sand);
+    color: var(--dark);
     line-height: 1.6;
   }
+
+  /* HEADER */
   .header {
-    border-bottom: 2px solid #c8102e;
-    padding-bottom: 20px;
-    margin-bottom: 32px;
+    background: var(--dark);
+    color: white;
+    padding: 40px 48px 36px;
+    border-bottom: 4px solid var(--red);
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
   }
   .header h1 {
-    font-size: 26px;
-    font-weight: 700;
-    margin: 0 0 6px 0;
-    letter-spacing: -0.3px;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
   }
-  .header p {
-    font-size: 14px;
-    color: #555;
-    margin: 0;
+  .header h1 span { color: var(--red); }
+  .header-meta {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #aaa;
+    line-height: 1.6;
+    padding-top: 4px;
+  }
+  .header-sub {
+    font-size: 0.95rem;
+    color: #ccc;
+    margin-top: 8px;
     font-style: italic;
   }
-  .intro {
-    font-size: 15px;
-    color: #333;
-    margin-bottom: 32px;
-    line-height: 1.7;
+
+  /* LAYOUT */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 32px 60px;
   }
-  .section {
-    margin-bottom: 32px;
-  }
-  .section-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
+
+  /* SECTION */
+  .section { margin-top: 44px; }
+  .section-title {
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #c8102e;
-    margin-bottom: 12px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid #e8e8e8;
+    color: white;
+    background: var(--red);
+    padding: 6px 14px;
+    display: inline-block;
   }
+  .section-body {
+    border: 1px solid var(--border);
+    border-top: none;
+    background: white;
+  }
+
+  /* SUBSECTION */
+  .subsection-title {
+    font-size: 0.68rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    background: var(--light-gray);
+    padding: 7px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* RACE ROW */
   .race {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: baseline;
-    padding: 9px 0;
-    border-bottom: 1px solid #f0f0f0;
+    padding: 11px 18px;
+    border-bottom: 1px solid #ede9e1;
     gap: 16px;
   }
-  .race:last-child {
-    border-bottom: none;
-  }
+  .race:last-child { border-bottom: none; }
   .race-office {
-    font-size: 13px;
-    color: #555;
-    flex-shrink: 0;
-    min-width: 220px;
+    font-size: 0.78rem;
+    color: var(--gray);
+    font-style: italic;
   }
   .race-candidate {
-    font-size: 15px;
-    font-weight: 700;
-    text-align: right;
+    font-size: 0.92rem;
+    font-weight: bold;
   }
   .race-candidate a {
-    color: #1a1a1a;
-    text-decoration: none;
-    border-bottom: 1px solid #c8102e;
+    color: var(--dark);
+    text-decoration: underline;
+    text-decoration-color: var(--red);
+    text-underline-offset: 3px;
   }
-  .race-candidate a:hover {
-    color: #c8102e;
-  }
+  .race-candidate a:hover { color: var(--red); }
+
+  /* MEASURE ROW */
   .measure {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 100px 1fr;
     align-items: baseline;
-    padding: 9px 0;
+    padding: 11px 18px;
+    border-bottom: 1px solid #ede9e1;
     gap: 16px;
   }
-  .measure-name {
-    font-size: 13px;
-    color: #555;
-    flex-shrink: 0;
-    min-width: 220px;
+  .measure:last-child { border-bottom: none; }
+  .measure-label {
+    font-size: 0.78rem;
+    font-weight: bold;
+    color: var(--gray);
   }
-  .measure-rec {
-    font-size: 15px;
-    font-weight: 700;
-    text-align: right;
-    color: #c8102e;
-  }
-  .measure-rec a {
-    color: #c8102e;
-    text-decoration: none;
-    border-bottom: 1px solid #c8102e;
-  }
-  .measure-rec a:hover {
-    opacity: 0.75;
-  }
-  .footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #e8e8e8;
-    font-size: 13px;
-    color: #888;
+  .measure-rec { font-size: 0.92rem; }
+  .measure-rec.yes { font-weight: bold; color: #1a7a2e; }
+  .measure-rec.no  { font-weight: bold; color: var(--red); }
+  .measure-desc {
+    font-size: 0.8rem;
+    color: var(--gray);
     font-style: italic;
+    margin-top: 2px;
+  }
+
+  /* JUDICIAL NOTE */
+  .judicial-note {
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    color: var(--gray);
+    font-style: italic;
+  }
+  .judicial-note strong { color: var(--red); font-style: normal; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    margin-top: 52px;
+    padding-top: 24px;
+    border-top: 2px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--gray);
+    font-style: italic;
+  }
+  .footer a { color: var(--red); }
+
+  @media print {
+    body { background: white; }
+    .header { background: black; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section-title { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .measure-rec.yes, .measure-rec.no { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>Tony Krvaric's Voter Guide — June 2, 2026</h1>
-  <p>California Gubernatorial Primary Election</p>
+  <div class="header-top">
+    <h1>Tony Krvaric's<br><span>Voter Guide</span></h1>
+    <div class="header-meta">
+      November 3, 2026<br>
+      California General Election<br>
+      San Diego County Focus
+    </div>
+  </div>
+  <div class="header-sub">All Republicans of course — and the conservative, freedom-oriented position on all ballot measures.</div>
 </div>
 
-<p class="intro">
-  You asked who I'm voting for on June 2. Here's my full list, from the top of the ticket down to local races. All Republicans, of course. Click any name to visit their campaign website.
-</p>
+<div class="container">
 
-<!-- FEDERAL -->
-<div class="section">
-  <div class="section-label">Federal</div>
+  <!-- FEDERAL -->
+  <div class="section">
+    <div class="section-title">Federal</div>
+    <div class="section-body">
+      <div class="subsection-title">U.S. House of Representatives</div>
+      <div class="race">
+        <div class="race-office">Congressional District 1</div>
+        <div class="race-candidate"><a href="https://electjamesgallagher.com/" target="_blank">James Gallagher</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Congressional District 5</div>
+        <div class="race-candidate"><a href="https://www.tommcclintock.com/" target="_blank">Tom McClintock</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Congressional District 13</div>
+        <div class="race-candidate"><a href="https://www.kevinlincolnforcongress.com/" target="_blank">Kevin Lincoln</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Congressional District 19</div>
+        <div class="race-candidate"><a href="https://peterverbica.com/" target="_blank">Peter Verbica</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Congressional District 20</div>
+        <div class="race-candidate"><a href="https://vincefong.com/" target="_blank">Vince Fong</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Congressional District 22</div>
+        <div class="race-candidate"><a href="https://valadaoforcongress.com/" target="_blank">David Valadao</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Congressional District 23</div>
+        <div class="race-candidate"><a href="https://electjay.com/" target="_blank">Jay Obernolte</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Congressional District 47</div>
+        <div class="race-candidate"><a href="https://jennyraeca.com/" target="_blank">Jenny Rae Le Roux</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Congressional District 48</div>
+        <div class="race-candidate"><a href="https://www.desmondforcongress.com/" target="_blank">Jim Desmond</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Congressional District 49</div>
+        <div class="race-candidate"><a href="https://kurdianforcongress.com/" target="_blank">Armen Kurdian</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Congressional District 50</div>
+        <div class="race-candidate"><a href="https://cohenforcongressca50.com/" target="_blank">Steve Cohen</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Congressional District 51</div>
+        <div class="race-candidate"><a href="https://www.cabreraforcongress2026.com/" target="_blank">Ricardo Cabrera</a></div>
+      </div>
+    </div>
+  </div>
 
-  <div class="race">
-    <div class="race-office">U.S. Congress, CA-48</div>
-    <div class="race-candidate"><a href="https://www.desmondforcongress.com/">Jim Desmond</a></div>
+  <!-- STATEWIDE -->
+  <div class="section">
+    <div class="section-title">Statewide</div>
+    <div class="section-body">
+      <div class="subsection-title">Constitutional Officers</div>
+      <div class="race">
+        <div class="race-office">Governor</div>
+        <div class="race-candidate"><a href="https://stevehiltonforgovernor.com/" target="_blank">Steve Hilton</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Lieutenant Governor</div>
+        <div class="race-candidate"><a href="https://www.gloriaromero4ltgov.com/" target="_blank">Gloria Romero</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Secretary of State</div>
+        <div class="race-candidate"><a href="https://wagnerforcalifornia.com/" target="_blank">Don Wagner</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Controller</div>
+        <div class="race-candidate"><a href="https://www.herbmorgan.com/" target="_blank">Herb Morgan</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Treasurer</div>
+        <div class="race-candidate"><a href="https://hawksforus.com/" target="_blank">Jennifer Hawks</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Attorney General</div>
+        <div class="race-candidate"><a href="https://www.gates4ag.com/" target="_blank">Michael Gates</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Supt. of Public Instruction</div>
+        <div class="race-candidate"><a href="https://shawforca.com/" target="_blank">Sonja Shaw</a></div>
+      </div>
+      <div class="subsection-title">Board of Equalization</div>
+      <div class="race">
+        <div class="race-office">District 1</div>
+        <div class="race-candidate"><a href="https://shannongroveca.com/" target="_blank">Shannon Grove</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">District 4</div>
+        <div class="race-candidate"><a href="https://bilodeauforboe.com/" target="_blank">Denis Bilodeau</a></div>
+      </div>
+    </div>
   </div>
-  <div class="race">
-    <div class="race-office">U.S. Congress, CA-49</div>
-    <div class="race-candidate"><a href="https://kurdianforcongress.com/">Armen Kurdian</a></div>
+
+  <!-- STATE SENATE -->
+  <div class="section">
+    <div class="section-title">State Senate</div>
+    <div class="section-body">
+      <div class="race">
+        <div class="race-office">Senate District 6</div>
+        <div class="race-candidate"><a href="https://rogerniello.com/" target="_blank">Roger Niello</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Senate District 18</div>
+        <div class="race-candidate"><a href="https://www.arthodgesforsenate.com/" target="_blank">Art Hodges</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Senate District 22</div>
+        <div class="race-candidate"><a href="https://www.netter.vote/" target="_blank">Mike Netter</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Senate District 32</div>
+        <div class="race-candidate"><a href="https://seyartoforsenate.com/" target="_blank">Kelly Seyarto</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Senate District 36</div>
+        <div class="race-candidate"><a href="https://stricklandforsenate.com/" target="_blank">Tony Strickland</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Senate District 38</div>
+        <div class="race-candidate"><a href="https://bassettforca.com/" target="_blank">Laura Bassett</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Senate District 40</div>
+        <div class="race-candidate"><a href="https://www.kristiebrucelane.com" target="_blank">Kristie Bruce-Lane</a></div>
+      </div>
+    </div>
   </div>
-  <div class="race">
-    <div class="race-office">U.S. Congress, CA-50</div>
-    <div class="race-candidate">Steve Cohen</div>
+
+  <!-- STATE ASSEMBLY -->
+  <div class="section">
+    <div class="section-title">State Assembly</div>
+    <div class="section-body">
+      <div class="race">
+        <div class="race-office">Assembly District 5</div>
+        <div class="race-candidate"><a href="https://joepatterson.com/" target="_blank">Joe Patterson</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 7</div>
+        <div class="race-candidate"><a href="https://hooverforassembly.com/" target="_blank">Josh Hoover</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 8</div>
+        <div class="race-candidate"><a href="https://www.davidtangipaforassembly.com/" target="_blank">David Tangipa</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 9</div>
+        <div class="race-candidate"><a href="https://heathflora.com/" target="_blank">Heath Flora</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 33</div>
+        <div class="race-candidate"><a href="https://www.alexandramacedo.com/" target="_blank">Alexandra Macedo</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 36</div>
+        <div class="race-candidate"><a href="https://www.gonzalez4assembly.com/" target="_blank">Jeff Gonzalez</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 47</div>
+        <div class="race-candidate"><a href="https://www.gregwallis.org/" target="_blank">Greg Wallis</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 59</div>
+        <div class="race-candidate"><a href="https://www.phillipchen.org/" target="_blank">Phillip Chen</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 65</div>
+        <div class="race-candidate">Lydia Gutierrez</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 70</div>
+        <div class="race-candidate"><a href="https://www.trita4assembly.com/" target="_blank">Tri Ta</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 71</div>
+        <div class="race-candidate"><a href="https://www.sanchezforassembly.com/" target="_blank">Kate Sanchez</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 74</div>
+        <div class="race-candidate"><a href="https://www.daviesforca.com/" target="_blank">Laurie Davies</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 75</div>
+        <div class="race-candidate"><a href="https://carldemaio.com/" target="_blank">Carl DeMaio</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 76</div>
+        <div class="race-candidate"><a href="https://www.villanuevaforassembly.com/" target="_blank">Carrie Villanueva</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 77</div>
+        <div class="race-candidate">Trinity Hannaway</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 78</div>
+        <div class="race-candidate">Payton Galvez</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 79</div>
+        <div class="race-candidate"><a href="https://www.andrewlawson4ad79.com/" target="_blank">Andrew Lawson</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Assembly District 80</div>
+        <div class="race-candidate">Alejandro Galicia</div>
+      </div>
+    </div>
   </div>
+
+  <!-- JUDICIAL -->
+  <div class="section">
+    <div class="section-title">Judicial</div>
+    <div class="section-body">
+      <div class="judicial-note">
+        California Supreme Court &amp; Court of Appeal, 4th District Justices — <strong>NO on all</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAN DIEGO COUNTY -->
+  <div class="section">
+    <div class="section-title">San Diego County</div>
+    <div class="section-body">
+      <div class="subsection-title">Board of Supervisors</div>
+      <div class="race">
+        <div class="race-office">District 4</div>
+        <div class="race-candidate"><a href="https://kristinealessio.com/" target="_blank">Kristine C. Alessio</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">District 5</div>
+        <div class="race-candidate"><a href="https://www.jonesforsupervisor.org/" target="_blank">Rebecca Jones</a></div>
+      </div>
+      <div class="subsection-title">Countywide Officers</div>
+      <div class="race">
+        <div class="race-office">Assessor/Recorder/Clerk</div>
+        <div class="race-candidate"><a href="https://www.vote4marks.com/" target="_blank">Jordan Marks</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Treasurer/Tax Collector</div>
+        <div class="race-candidate"><a href="https://shirleyforsandiego.com/" target="_blank">Shirley Nakawatase</a></div>
+      </div>
+      <div class="subsection-title">County Board of Education</div>
+      <div class="race">
+        <div class="race-office">District 3</div>
+        <div class="race-candidate">Cory Brown</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CITIES -->
+  <div class="section">
+    <div class="section-title">Cities</div>
+    <div class="section-body">
+
+      <div class="subsection-title">Carlsbad</div>
+      <div class="race">
+        <div class="race-office">Mayor</div>
+        <div class="race-candidate"><a href="http://keith4carlsbad.com/" target="_blank">Keith Blackburn</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">City Treasurer</div>
+        <div class="race-candidate">Thomas Krouse</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Council District 1</div>
+        <div class="race-candidate"><a href="https://www.melanieforcarlsbad.com/" target="_blank">Melanie Burkholder</a></div>
+      </div>
+
+      <div class="subsection-title">Chula Vista</div>
+      <div class="race">
+        <div class="race-office">Mayor</div>
+        <div class="race-candidate"><a href="https://johnmccann.com" target="_blank">John McCann</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Council District 1</div>
+        <div class="race-candidate">Greg Martinez</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Council District 2</div>
+        <div class="race-candidate">Angelica Martinez</div>
+      </div>
+
+      <div class="subsection-title">Coronado</div>
+      <div class="race">
+        <div class="race-office">City Council</div>
+        <div class="race-candidate">Kelly Purvis</div>
+      </div>
+      <div class="race">
+        <div class="race-office">City Council</div>
+        <div class="race-candidate">Ricky Hoyt</div>
+      </div>
+
+      <div class="subsection-title">Encinitas</div>
+      <div class="race">
+        <div class="race-office">Council District 3</div>
+        <div class="race-candidate"><a href="https://edforencinitas.com/" target="_blank">Ed Sprague</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Council District 4</div>
+        <div class="race-candidate"><a href="https://www.marco4encinitas.com/" target="_blank">Marco San Antonio</a></div>
+      </div>
+
+      <div class="subsection-title">El Cajon</div>
+      <div class="race">
+        <div class="race-office">Mayor</div>
+        <div class="race-candidate"><a href="https://www.votebillwells.com/" target="_blank">Bill Wells</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Council District 1</div>
+        <div class="race-candidate"><a href="https://www.kayeforelcajon.com/" target="_blank">Chuck Kaye</a></div>
+      </div>
+
+      <div class="subsection-title">Escondido</div>
+      <div class="race">
+        <div class="race-office">Mayor</div>
+        <div class="race-candidate"><a href="https://www.danemwhite.com/" target="_blank">Dane White</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Council District 1</div>
+        <div class="race-candidate"><a href="https://tannerhorsley.com" target="_blank">Tanner Horsley</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Council District 2</div>
+        <div class="race-candidate"><a href="https://www.joeforescondido.com/" target="_blank">Joe Garcia</a></div>
+      </div>
+
+      <div class="subsection-title">Imperial Beach</div>
+      <div class="race">
+        <div class="race-office">Council District 1</div>
+        <div class="race-candidate">Steve Berry</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Council District 3</div>
+        <div class="race-candidate"><a href="https://mariko4ib.com/" target="_blank">Mariko Nakawatase</a></div>
+      </div>
+
+      <div class="subsection-title">La Mesa</div>
+      <div class="race">
+        <div class="race-office">Mayor</div>
+        <div class="race-candidate"><a href="https://www.lauralothian4mayor.com/" target="_blank">Laura Lothian</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">City Treasurer</div>
+        <div class="race-candidate"><a href="https://exeterforlamesatreasurer.com/" target="_blank">Bill Exeter</a></div>
+      </div>
+
+      <div class="subsection-title">Oceanside</div>
+      <div class="race">
+        <div class="race-office">Council District 1</div>
+        <div class="race-candidate"><a href="https://mikeclineoceanside.com/" target="_blank">Michael A. Cline</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Council District 2</div>
+        <div class="race-candidate">Richard Robinson</div>
+      </div>
+
+      <div class="subsection-title">Poway</div>
+      <div class="race">
+        <div class="race-office">Mayor</div>
+        <div class="race-candidate"><a href="https://www.votevaus.com/" target="_blank">Steve Vaus</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Council District 1</div>
+        <div class="race-candidate">Chris Pikus</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Council District 3</div>
+        <div class="race-candidate"><a href="https://peter4poway.com/" target="_blank">Peter De Hoff</a></div>
+      </div>
+
+      <div class="subsection-title">San Marcos</div>
+      <div class="race">
+        <div class="race-office">Mayor</div>
+        <div class="race-candidate"><a href="https://mikesannella.com" target="_blank">Mike Sannella</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Council District 1</div>
+        <div class="race-candidate">Thomas Gabriele</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Council District 2</div>
+        <div class="race-candidate"><a href="https://www.smith4sanmarcos.com/" target="_blank">Lindsey Smith</a></div>
+      </div>
+
+      <div class="subsection-title">Santee</div>
+      <div class="race">
+        <div class="race-office">Council District 1</div>
+        <div class="race-candidate">Rob McNelis</div>
+      </div>
+
+      <div class="subsection-title">Vista</div>
+      <div class="race">
+        <div class="race-office">Council District 1</div>
+        <div class="race-candidate"><a href="https://www.frank4vista.com/" target="_blank">Frank Nuñez</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SCHOOL & SPECIAL DISTRICTS -->
+  <div class="section">
+    <div class="section-title">School &amp; Special Districts</div>
+    <div class="section-body">
+
+      <div class="subsection-title">Carlsbad Unified School District</div>
+      <div class="race">
+        <div class="race-office">Trustee Area 1</div>
+        <div class="race-candidate">Amber Martinez</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Trustee Area 4</div>
+        <div class="race-candidate">Gretchen Vurbeff</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Trustee Area 5</div>
+        <div class="race-candidate">Joel Gutierrez</div>
+      </div>
+
+      <div class="subsection-title">Coronado Unified School District</div>
+      <div class="race">
+        <div class="race-office">School Board</div>
+        <div class="race-candidate">Peggy Duncan</div>
+      </div>
+
+      <div class="subsection-title">Escondido Union School District</div>
+      <div class="race">
+        <div class="race-office">Trustee Area 2</div>
+        <div class="race-candidate">Chris Ranglas</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Trustee Area 4</div>
+        <div class="race-candidate">Zesty Harper</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Trustee Area 5</div>
+        <div class="race-candidate">Frank Huston</div>
+      </div>
+
+      <div class="subsection-title">Escondido Union High School District</div>
+      <div class="race">
+        <div class="race-office">Trustee Area 2</div>
+        <div class="race-candidate">Joe Hinrichs</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Trustee Area 5</div>
+        <div class="race-candidate">David Vincent</div>
+      </div>
+
+      <div class="subsection-title">Grossmont Union High School District</div>
+      <div class="race">
+        <div class="race-office">Trustee Area 3</div>
+        <div class="race-candidate">Gary Woods</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Trustee Area 4</div>
+        <div class="race-candidate">Charissa "Chrissy" McCullough</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Trustee Area 5</div>
+        <div class="race-candidate">Jim Kelly</div>
+      </div>
+
+      <div class="subsection-title">Ramona Unified School District</div>
+      <div class="race">
+        <div class="race-office">Trustee Area 1</div>
+        <div class="race-candidate">Maya Phillips</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Trustee Area 2</div>
+        <div class="race-candidate">Dan Summers</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Trustee Area 5</div>
+        <div class="race-candidate"><a href="https://votedohm.com/" target="_blank">Rodger Dohm</a></div>
+      </div>
+
+      <div class="subsection-title">Rancho Santa Fe School District</div>
+      <div class="race">
+        <div class="race-office">Board Member</div>
+        <div class="race-candidate">Jee Manghani</div>
+      </div>
+
+      <div class="subsection-title">San Dieguito Union High School District</div>
+      <div class="race">
+        <div class="race-office">Trustee Area 3</div>
+        <div class="race-candidate">Summer Boger</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Trustee Area 5</div>
+        <div class="race-candidate">Ginny Merrifield</div>
+      </div>
+
+      <div class="subsection-title">Poway Unified School District</div>
+      <div class="race">
+        <div class="race-office">Trustee Area D</div>
+        <div class="race-candidate"><a href="https://darlingforpusd.com" target="_blank">Daniela Darling</a></div>
+      </div>
+      <div class="race">
+        <div class="race-office">Trustee Area C</div>
+        <div class="race-candidate">Jason Bennett</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Trustee Area B</div>
+        <div class="race-candidate"><a href="https://brettforpusd.com/" target="_blank">Brett Davis</a></div>
+      </div>
+
+      <div class="subsection-title">South Bay Union School District</div>
+      <div class="race">
+        <div class="race-office">Trustee Area 1</div>
+        <div class="race-candidate">Erika Lowery</div>
+      </div>
+
+      <div class="subsection-title">Grossmont Healthcare District</div>
+      <div class="race">
+        <div class="race-office">Zone 2</div>
+        <div class="race-candidate">Randy Lenac</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Zone 4</div>
+        <div class="race-candidate">Maggie T. Watkins</div>
+      </div>
+
+      <div class="subsection-title">Palomar Health District</div>
+      <div class="race">
+        <div class="race-office">Division 3</div>
+        <div class="race-candidate">Laurie Edwards-Tate</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Division 5</div>
+        <div class="race-candidate">John Clark</div>
+      </div>
+
+      <div class="subsection-title">Tri-City Healthcare District</div>
+      <div class="race">
+        <div class="race-office">Zone 2</div>
+        <div class="race-candidate">Jerome Kern</div>
+      </div>
+
+      <div class="subsection-title">Fallbrook Community Planning Group</div>
+      <div class="race">
+        <div class="race-office">Planning Group</div>
+        <div class="race-candidate">Jonathan Smith</div>
+      </div>
+
+      <div class="subsection-title">Lakeside Community Planning Group</div>
+      <div class="race">
+        <div class="race-office">Planning Group</div>
+        <div class="race-candidate">Oleksandra Reva</div>
+      </div>
+      <div class="race">
+        <div class="race-office">Planning Group</div>
+        <div class="race-candidate">Ashley Carnevale</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STATEWIDE BALLOT MEASURES -->
+  <div class="section">
+    <div class="section-title">Statewide Ballot Measures</div>
+    <div class="section-body">
+      <div class="measure">
+        <div class="measure-label">Prop 1</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">$11.25B housing bond — bonds roughly double in cost with interest; a wasteful way to fund programs</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Prop 2</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Tweaks Gann Limit and rainy-day fund rules but doesn't restore spending limits weakened by Props. 98 &amp; 111 — a partial fix at best</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Prop 3</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Makes the 2012 income tax rate hike permanent — a backdoor permanent tax increase disguised as an extension</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Prop 4</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Forces taxpayers to fund politicians' campaign costs — government has no business financing political campaigns</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Prop 5</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Lets a recalled officeholder run in their own recall election — undermines the entire purpose of the recall process</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Prop 37</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">$25B bond for government second-mortgage loans — housing is better served by removing building barriers, not more debt</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Prop 38</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">$8.4B bond for immune-system disease research — private, foundation, and federal funding already covers this</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Prop 39</div>
+        <div>
+          <div class="measure-rec yes">YES</div>
+          <div class="measure-desc">Voter ID requirement — most states already require ID; prevents impersonation and ensures valid mail ballots</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Prop 40</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Wealth tax on assets over $1B — Legislature can later lower thresholds, change rates, and expand to anyone</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Prop 41</div>
+        <div>
+          <div class="measure-rec yes">YES</div>
+          <div class="measure-desc">Requires pre-election audits of programs funded by new statewide special taxes — accountability before the money flows</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Prop 42</div>
+        <div>
+          <div class="measure-rec yes">YES</div>
+          <div class="measure-desc">Bars new state taxes on owning personal property and bars retroactive taxes — protects homes, savings, and retirement accounts</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Prop 43</div>
+        <div>
+          <div class="measure-rec yes">YES</div>
+          <div class="measure-desc">Local Taxpayer Protection Act — restores the two-thirds vote requirement for local special taxes and closes the "Upland" loophole that gutted Prop. 13</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Prop 44</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Sponsored by a labor union to expand control over community health clinics serving low-income patients</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Prop 45</div>
+        <div>
+          <div class="measure-rec yes">YES</div>
+          <div class="measure-desc">Carves some projects out of CEQA to speed development — imperfect but a good first step toward cutting red tape</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCAL BALLOT MEASURES -->
+  <div class="section">
+    <div class="section-title">Local Ballot Measures</div>
+    <div class="section-body">
+      <div class="measure">
+        <div class="measure-label">Measure A</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">San Diego County — Expands supervisor term limits and creates new bureaucracies under the guise of "accountability" — more government, not better government</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure B</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">San Diego County — Half-cent sales tax hike (~$400M/yr) for a slush fund the county controls; taxpayers already fund health and safety</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure C</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Solana Beach — 1% hotel tax increase; even "visitor taxes" get passed on to locals and businesses</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure D</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Coronado — Loosens building height limits in the R-4 zone; ruins local character and violates property rights</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure G</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Grossmont-Cuyamaca Community College District — $624M bond repaid through higher property taxes; colleges should live within their budget</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure H</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Jamul-Dulzura Union School District — $18M bond repaid through property tax increases; more money is not the answer</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure J</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Julian Union High School District — $9M bond repaid through property tax increases; more money is not the answer</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure K</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Fallbrook Union Elementary School District — $76M bond repaid through property tax increases; more money is not the answer</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure L</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Mountain Empire Unified School District — $23M bond repaid through property tax increases; more money is not the answer</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure M</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">San Diego Unified School District — $3.5B bond — the most obscene tax grab on the ballot; repaid through higher property taxes for decades</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure N</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Vista Unified School District — $543M bond repaid through property tax increases; more money is not the answer</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure R</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Oceanside — Union-backed charter amendment discriminating against local workers who choose to not belong to a union from city projects; drives up costs for taxpayers</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure S</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Oceanside — Half-cent sales tax for 10 years on top of an existing tax; city should cut spending instead</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure Y</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Santee — Sales tax increase for local services; another revenue grab instead of fiscal discipline</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure AA</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">La Mesa-Spring Valley School District — $131M bond repaid through property tax increases; more money is not the answer</div>
+        </div>
+      </div>
+      <div class="measure">
+        <div class="measure-label">Measure BB</div>
+        <div>
+          <div class="measure-rec no">NO</div>
+          <div class="measure-desc">Santee School District — $30M bond repaid through property tax increases; more money is not the answer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Prepared by Tony Krvaric &nbsp;·&nbsp; <a href="mailto:tony@tonykrvaric.com">tony@tonykrvaric.com</a> &nbsp;·&nbsp; tonykrvaric.com</p>
+    <p style="margin-top:6px;">November 3, 2026 California General Election &nbsp;·&nbsp; San Diego County Focus</p>
+    <p style="margin-top:10px;">Not paid for, or authorized by, any candidate or candidate's committee.</p>
+  </div>
+
 </div>
-
-<!-- STATE — STATEWIDE -->
-<div class="section">
-  <div class="section-label">State — Statewide</div>
-
-  <div class="race">
-    <div class="race-office">Governor</div>
-    <div class="race-candidate"><a href="https://stevehiltonforgovernor.com/">Steve Hilton</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">Lieutenant Governor</div>
-    <div class="race-candidate"><a href="https://www.gloriaromero4ltgov.com/">Gloria Romero</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">Secretary of State</div>
-    <div class="race-candidate"><a href="https://wagnerforcalifornia.com/">Don Wagner</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">State Controller</div>
-    <div class="race-candidate"><a href="https://www.herbmorgan.com/">Herb Morgan</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">State Treasurer</div>
-    <div class="race-candidate"><a href="https://hawksforus.com/">Jennifer Hawks</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">Attorney General</div>
-    <div class="race-candidate"><a href="https://www.gates4ag.com/">Michael Gates</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">Insurance Commissioner</div>
-    <div class="race-candidate"><a href="https://www.stacyforinsurancecommissioner.com/">Stacy Korsgaden</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">Superintendent of Public Instruction</div>
-    <div class="race-candidate"><a href="https://shawforca.com/">Sonja Shaw</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">Board of Equalization, District 4</div>
-    <div class="race-candidate"><a href="https://bilodeauforboe.com/">Denis Bilodeau</a></div>
-  </div>
-</div>
-
-<!-- STATE — LEGISLATIVE -->
-<div class="section">
-  <div class="section-label">State — Legislative</div>
-
-  <div class="race">
-    <div class="race-office">State Senate, District 38</div>
-    <div class="race-candidate"><a href="https://bassettforca.com/">Laura Bassett</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">State Senate, District 40</div>
-    <div class="race-candidate"><a href="https://musgrove4senate.com/">Ed Musgrove</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">State Assembly, District 74</div>
-    <div class="race-candidate"><a href="https://www.daviesforca.com/">Laurie Davies</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">State Assembly, District 75</div>
-    <div class="race-candidate"><a href="https://carldemaio.com/">Carl DeMaio</a></div>
-  </div>
-</div>
-
-<!-- SAN DIEGO COUNTY -->
-<div class="section">
-  <div class="section-label">San Diego County</div>
-
-  <div class="race">
-    <div class="race-office">Board of Supervisors, District 5</div>
-    <div class="race-candidate"><a href="https://franklinforsupervisor.com/">John Franklin</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">Assessor/Recorder/Clerk (November)</div>
-    <div class="race-candidate"><a href="https://www.vote4marks.com/">Jordan Marks</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">County Treasurer/Tax Collector</div>
-    <div class="race-candidate"><a href="https://www.electjoelanderson.com/">Joel Anderson</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">Superior Court Judge, Office 31</div>
-    <div class="race-candidate"><a href="https://adamforjudge2026.com/">Adam Noakes</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">Superior Court Judge, Office 32</div>
-    <div class="race-candidate"><a href="https://dambrogiforjudge.com/">Nicole D'Ambrogi</a></div>
-  </div>
-</div>
-
-<!-- CITY -->
-<div class="section">
-  <div class="section-label">City</div>
-
-  <div class="race">
-    <div class="race-office">Chula Vista Mayor</div>
-    <div class="race-candidate"><a href="https://johnmccann.com/">John McCann</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">Poway City Council, District 2</div>
-    <div class="race-candidate"><a href="https://www.anitapoway.com/">Anita Edmondson</a></div>
-  </div>
-  <div class="race">
-    <div class="race-office">San Diego City Council, District 6</div>
-    <div class="race-candidate"><a href="https://markpowellforcitycouncil.com/">Mark Powell</a></div>
-  </div>
-</div>
-
-<!-- BALLOT MEASURES -->
-<div class="section">
-  <div class="section-label">Ballot Measures — City of San Diego</div>
-
-  <div class="measure">
-    <div class="measure-name">Measure A — Empty Homes Tax</div>
-    <div class="measure-rec"><a href="https://www.stopmeasurea.com/">NO</a></div>
-  </div>
-</div>
-
-<div class="footer">
-  Candidates and recommendations are for the June 2, 2026 California Primary. Not all races appear on every ballot — check your specific district.
-</div>
-
 </body>
 </html>
